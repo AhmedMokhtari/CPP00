@@ -75,7 +75,8 @@ void search_contact(const PhoneBook &phone)
 
 	while (i < phone.nb_contacts)
 	{
-		std::cout << std::setw(10) << align(std::to_string(i + 1)) << "|" ;
+		char a = i + '0';
+		std::cout << std::setw(10) << align(std::string(1, a)) << "|" ;
 		std::cout << std::setw(10) << align(phone.contacts[i].get_first_name())  << "|";
 		std::cout << std::setw(10) << align(phone.contacts[i].get_last_name())<< "|";
 		std::cout << std::setw(10) << align(phone.contacts[i].get_nickname());
