@@ -75,7 +75,7 @@ void search_contact(const PhoneBook &phone)
 
 	while (i < phone.nb_contacts)
 	{
-		char a = i + '0';
+		char a = i + '0' + 1;
 		std::cout << std::setw(10) << align(std::string(1, a)) << "|" ;
 		std::cout << std::setw(10) << align(phone.contacts[i].get_first_name())  << "|";
 		std::cout << std::setw(10) << align(phone.contacts[i].get_last_name())<< "|";
@@ -103,14 +103,14 @@ int main()
 	{
 		std::cout << "----------------- Enter You Choise --------------------\n";
 		std::cout << "ADD New Contact\n";
-		std::cout << "Search\n";
+		std::cout << "SEARCH\n";
 		std::cout << "Exit\n";
 		std::cout << "-------------------------------------------------------\n";
 		if (!getline(std::cin, tmp))
 			break ;
 		if (!tmp.compare("ADD"))
 			add_new_contact(phone);
-		else if (!tmp.compare("Search"))
+		else if (!tmp.compare("SEARCH"))
 			search_contact(phone);
 		else if (!tmp.compare("Exit"))
 			return (0);
