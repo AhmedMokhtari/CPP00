@@ -12,6 +12,7 @@ class Contact
 		std::string phone_number;
 		std::string darkest_secret;
 		bool is_valid(const std::string &str);
+		bool is_all_num(const std::string &str);
 		std::string ft_trim(const std::string &str);
 
 	public :

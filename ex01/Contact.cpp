@@ -54,7 +54,7 @@ std::string Contact::get_phone_number() const
 
 bool Contact::set_phone_number(std::string &phone_number)
 {
-	if (!is_valid(phone_number))
+	if (!is_valid(phone_number) || !is_all_num(phone_number))
 		return false;
 	this->phone_number = phone_number;
 	return true;
@@ -86,8 +86,8 @@ std::string Contact::ft_trim(const std::string &str)
 
 	while (str[begin] && str[begin] == ' ')
 		begin++;
-	// if(begin == len)
-	// 	return t;
+	if(begin == len)
+		return t;
 	while (end > 0 && str[len] == ' ')
 		len--;
 	return str.substr(begin, end);
@@ -104,6 +104,23 @@ bool Contact::is_valid(const std::string &str)
 	while (i < len)
 	{
 		if (t[i] < 040 || t[i] > 0176)
+			return false;
+		i++;
+	}
+	return true;
+}
+
+bool Contact::is_all_num(const std::string &str)
+{
+	size_t i = 0;
+
+	std::string t = ft_trim(str);
+	size_t len = t.length();
+	if (!len)
+		return false;
+	while (i < len)
+	{
+		if (t[i] < '0' || t[i] > '9')
 			return false;
 		i++;
 	}
