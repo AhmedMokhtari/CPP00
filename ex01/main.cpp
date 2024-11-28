@@ -13,7 +13,7 @@ void	add_new_contact(PhoneBook &phone)
 	{
 		std::cout << "Enter Your First name : ";
 		if (!getline(std::cin, tmp))
-			return ;
+			exit(0) ;
 		if (obj.set_first_name(tmp))
 			break;
 		std::cerr << "Invalide input \n";
@@ -23,7 +23,7 @@ void	add_new_contact(PhoneBook &phone)
 	{
 		std::cout << "Enter Your Last name : ";
 		if (!getline(std::cin, tmp))
-			return ;
+			exit(0) ;
 		if (obj.set_last_name(tmp))
 			break;
 		std::cerr << "Invalide input \n";
@@ -33,7 +33,7 @@ void	add_new_contact(PhoneBook &phone)
 	{
 		std::cout << "Enter Your Nick name : ";
 		if (!getline(std::cin, tmp))
-			return ;
+			exit(0) ;
 		if (obj.set_nickname(tmp))
 			break;
 		std::cerr << "Invalide input \n";
@@ -43,7 +43,7 @@ void	add_new_contact(PhoneBook &phone)
 	{
 		std::cout << "Enter Your Phone number : ";
 		if (!getline(std::cin, tmp))
-			return ;
+			exit(0) ;
 		if (obj.set_phone_number(tmp))
 			break;
 		std::cerr << "Invalide input \n";
@@ -53,7 +53,7 @@ void	add_new_contact(PhoneBook &phone)
 	{
 		std::cout << "Enter Your darkest secret : ";
 		if (!getline(std::cin, tmp))
-			return ;
+			exit(0) ;
 		if (obj.set_darkest_secret(tmp))
 			break;
 		std::cerr << "Invalide input \n";
@@ -85,8 +85,7 @@ void search_contact(const PhoneBook &phone)
 	}
 	std::cout << "Choise User ID : ";
 	if (!getline(std::cin, tmp))
-			return ;
-	// getline(std::cin, tmp);
+			exit(0) ;
 	if (tmp.size() > 1 || tmp[0] - '0' <= 0 || tmp[0] - '0' > phone.nb_contacts)
 		std::cout << "Invalid index \n";
 	else
